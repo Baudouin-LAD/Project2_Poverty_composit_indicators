@@ -36,6 +36,7 @@ all_data.year,
 FROM all_data
 GROUP BY country_name, all_data.year, education_value, mortality_rate, gini, poverty_rate;
 
+DROP TABLE constants;
 CREATE TABLE constants 
 SELECT MIN(education_value) as min_educ,
 MAX(education_value) as max_educ,
@@ -47,6 +48,7 @@ MIN(poverty_rate) as min_poverty,
 MAX(poverty_rate) as max_poverty
 FROM all_data;
 
+DROP TABLE data_constant;
 CREATE TABLE data_constant
 SELECT a.country_name,
 a.year,
@@ -75,4 +77,4 @@ year,
 FROM data_constant d;
 
 SELECT *
-from data_constant;
+from nor;
